@@ -1,6 +1,8 @@
 // TODO: Include packages needed for this application
 const inquirer = require("inquirer");
 const fs = require("fs");
+const generateMarkdown = require("./utils/generateMarkdown");
+
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -16,6 +18,7 @@ const questions = [
     name: "description"
   },
 
+
   {
     type: "input",
     message: "If your README is long, add a table of contents to make it easy for users to find what they need.",
@@ -29,19 +32,20 @@ const questions = [
 
   {
     type: "input",
-    message: "Provide instructions and examples for use. Include screenshots as needed.",
+    message: "Provide instructions and examples for use.",
     name: "usage"
   },
 
   {
-    type: "input",
-    message: "This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).---",
+    type: "checkbox",
+    message: "Please choose a license type.",
+    choices: ["MIT", "Apache 2.0", "Silly Goose"],
     name: "license"
   },
 
   {
     type: "input",
-    message: "List your collaborators, if any, with links to their GitHub profiles. If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section. If you followed tutorials, include links to those here as well.",
+    message: "List your collaborators, if any, with links to their GitHub profiles.",
     name: "credits"
   },
 
@@ -51,35 +55,25 @@ const questions = [
     name: "tests"
   },
 
-  {
-    type: "input",
-    message: "",
-    name: "questions"
-  },
-
 ]
 
-  .then((data) => {
-    console.log(data);
-
-    const myHTML = createHTML(data);
-    fs.writeFile("index.html", myHTML, (err) => {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log("file was created successfully!");
-      }
-    }
-    )
-  })
 
 // TODO: Create a function to write README file
-function writeToFile(title, description, contents, install, usage, license, credits, tests, questions) {
-  return `markdownfile`;
+function writeToFile(fileName, data) {
+  const myMarkdown = generateMarkdown(data)
+  fs.writeFile(fileName, myMarkdown, (err) => {
+
+    err ? console.error(err) : console.log("README.md file has been successfully created!")
+  })
 }
 
 // TODO: Create a function to initialize app
-function init() { }
+function init() {
+  inquirer.prompt(questions)
+    .then((data) => {
+      writeToFile("README.md", data)
+    })
+};
 
 // Function call to initialize app
-init();
+init()

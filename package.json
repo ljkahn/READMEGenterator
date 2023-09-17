@@ -1,6 +1,6 @@
 {
   "name": "static-site",
-  "version": "1.0.0",
+  "version": "8.2.4",
   "description": "command line app",
   "main": "index.js",
   "scripts": {
