@@ -39,7 +39,7 @@ const questions = [
   {
     type: "checkbox",
     message: "Please choose a license type.",
-    choices: ["MIT", "Apache 2.0", "Silly Goose"],
+    choices: ["MIT", "Apache 2.0", "GNU"],
     name: "license"
   },
 
@@ -71,7 +71,7 @@ function writeToFile(fileName, data) {
 function init() {
   inquirer.prompt(questions)
     .then((data) => {
-      writeToFile("README.md", data)
+      writeToFile("./output/README.md", data)
     })
 };
 
