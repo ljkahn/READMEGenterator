@@ -16,7 +16,7 @@ function renderLicenseLink(license) {
   if (license === 'MIT') {
     return '[MIT Link](https://opensource.org/license/mit/)';
   } else if (license === 'BSD') {
-    return '[BSD Link](https://opensource.org/license/bsd-3-clause/)';
+    return '[GNU link](https://opensource.org/license/bsd-3-clause/)';
   } else if (license === 'GNU') {
     return '[GNU Link](https://www.gnu.org/licenses/gpl-3.0.en.html)';
   } else {
@@ -27,7 +27,13 @@ function renderLicenseLink(license) {
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string {
 function renderLicenseSection(license) {
-
+  if (license === 'MIT') {
+    return 'Click [here](./utils/MIT.txt) to view the MIT license document!'
+  } else if (license === 'Apache 2.0') {
+    return 'Click [here](./utils/APACHE.txt) to view the Apache 2.0 license!'
+  } else (license === 'GNU') {
+    return 'Click [here](./utils/GNUtxt) to view the GNU license!'
+  }
 }
 
 
