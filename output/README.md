@@ -1,7 +1,10 @@
-# read me generator
+
+  
+  
+  # buns
 
   ## Description
-- i created this for homework
+- buns
 
 ## Table of Contents
 
@@ -15,30 +18,31 @@
 
 ## Installation
 
-- 
+- sun
 
 ## Usage
 
 
--get a mac and run the terminal and create a readme 
+-lun
 
 ## License
 
 
 - 
-- undefined
+- 
+
 
 
 ## Credits
 
-- 
+- tonne
 -  GitHub: [undefined](https://github.com/undefined)
 
 
 
 ## Tests
 
-- 
+- shun
 
 
 
