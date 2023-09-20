@@ -2,7 +2,7 @@
 
 ## Description
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
+
 I built this application so I could have an easy way to generate a README file for my projects. With this easy to use generator - I can spend more time working on the project itself and less time worrying about creating a README file. Building this application taught me about how to use node and the command line in even further detail.
 ## Table of Contents (Optional)
 
