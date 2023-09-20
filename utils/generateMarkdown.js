@@ -2,11 +2,11 @@
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
   if (license === 'MIT') {
-    return '![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)';
+    return '![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)]';
   } else if (license === 'Apache 2.0') {
-    return ' ![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)';
+    return ' ![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)]';
   } else if (license === 'GNU') {
-    return '[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)';
+    return '[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)]';
   } else {
     return '';
   }
@@ -30,11 +30,11 @@ function renderLicenseLink(license) {
 // If there is no license, return an empty string {
 function renderLicenseSection(license) {
   if (license === 'MIT') {
-    return 'Click [here](./utils/MIT.txt) to view the MIT license document!';
+    return 'Click [here](./utils/licenses/MIT.txt) to view the MIT license document!';
   } else if (license === 'Apache 2.0') {
-    return 'Click [here](./utils/APACHE.txt) to view the Apache 2.0 license!';
+    return 'Click [here](./utils/licenses/APACHE.txt) to view the Apache 2.0 license!';
   } else if (license === 'GNU') {
-    return 'Click [here](./utils/GNU.txt) to view the GNU license!';
+    return 'Click [here](./utils/licenses/GNU.txt) to view the GNU license!';
   } else {
     return '';
   }
@@ -45,13 +45,9 @@ function renderLicenseSection(license) {
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
 
-  const licenseBadge = renderLicenseBadge(data.license);
-  const licenseLink = renderLicenseLink(data.license);
-  const licenseSection = renderLicenseSection(data.license);
-
   return `
   
-  ${licenseBadge}
+  ${renderLicenseBadge(data.licenseBadge)}
   # ${data.title}
 
   ## Description
@@ -60,7 +56,7 @@ function generateMarkdown(data) {
 ## Table of Contents
 
 
-- [Installation](#installation)
+- [Installation](#install)
 - [Usage](#usage)
 - [License](#license)
 - [Contributing](#contributing)
@@ -79,14 +75,14 @@ function generateMarkdown(data) {
 ## License
 
 
-- ${licenseSection}
-- ${licenseLink}
+- ${renderLicenseSection(data.licenseSection)}
+- ${renderLicenseLink(data.licenseLink)}
 
 
 
 ## Credits
 
-- ${data.credits}
+- ${data.contributing}
 -  GitHub: [${data.github}](https://github.com/${data.github})
 
 
@@ -96,9 +92,9 @@ function generateMarkdown(data) {
 - ${data.tests}
 
 ## Questions
-- [If you have any questions please dont hesitate to contact me!]
-- Github: ${data.username}
--Email: ${data.email}
+- If you have any questions please dont hesitate to contact me!
+- Github: ${data.github}
+- Email: ${data.email}
 
 `;
 }

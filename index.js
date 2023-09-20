@@ -37,7 +37,7 @@ const questions = [
   },
 
   {
-    type: "checkbox",
+    type: "list",
     message: "Please choose a license type.",
     choices: ["MIT", "Apache 2.0", "GNU"],
     name: "license"
@@ -46,7 +46,7 @@ const questions = [
   {
     type: "input",
     message: "List your collaborators, if any, with links to their GitHub profiles.",
-    name: "credits"
+    name: "contributing"
   },
 
   {
@@ -58,7 +58,7 @@ const questions = [
   {
     type: "input",
     message: "Please enter your Github profile URL.",
-    name: "username"
+    name: "github"
   },
 
   {
